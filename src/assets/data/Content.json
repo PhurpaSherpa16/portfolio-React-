@@ -1,0 +1,29 @@
+{
+    "navbarMenu": [
+    { "label": "Home", "path": "/", "icon": "home", "isActive":"true",  "target":false},
+    { "label": "About", "path": "/about", "icon": "user",  "target":false},
+    { "label": "Projects", "path": "/projects", "icon": "database",  "target":false },
+    { "label": "Blog", "path": "https://phurpasherpa-blog.vercel.app/", "icon": "blog", "target":true },
+    { "label": "Contact", "path": "/contact", "icon": "contact",  "target":false}
+    ],
+
+    "projects": [
+    {
+      "title": "Expense Tracker",
+      "desc": "Track daily expenses with insights.",
+      "tech": ["React", "Firebase"]
+    },
+    {
+      "title": "Weather Dashboard",
+      "desc": "Live weather updates with charts.",
+      "tech": ["Python", "API"]
+    }
+  ],
+  "blog": [
+    { "title": "Why Bento Grids Work", "date": "2025-09-10" },
+    { "title": "Design + Code Synergy", "date": "2025-09-14" }
+  ],
+  "whatIdo":["Frontend Development","UI/UX Design","Figma","Responsive Web Design"
+      ,"Performance Optimization"],
+  "Skills":["React","Tailwind","Figma","HTML","CSS","SCSS","Git","Javascript","Firebase","Netlify"]
+}

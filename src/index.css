@@ -1,0 +1,286 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&display=swap');
+
+
+
+:root{
+    --primaryBackgroundColor : #f7f7f7;
+    --secondaryBackgroundColor : rgb(255, 255, 255);
+    --primaryTextColor : black;
+    --secondaryText: rgba(0, 0, 0, 0.6);
+    --invertSecondaryText: rgba(255, 255, 255, 0.6);
+    --NavHeroSplit: rgba(128, 128, 128, 0.121);
+    --ActiveGColor: #2f2dc8;
+    --ActiveGColor2: #dbeafe;
+    --primaryHoverColor: rgb(255, 255, 255);
+    --primaryHoverColor2: hsla(214, 95%, 93%, 0.3);
+    --primaryHoverHelper: #efefef;
+    --CTAbuttonColor1:  #2f2dc8;
+    --CTAbuttonColor2:  #401d86;
+    --MenuBackground: #f7f7f7;
+    --WatchColor1: #401d86;
+    --WatchColor2: #0a094c;
+    --WatchColor3: #484C84;
+    --box: #0000001a;
+    --box1: #000000;
+    
+}
+
+
+[data-theme = 'dark']{
+    --primaryBackgroundColor : linear-gradient(to bottom, #000000, #06225a);
+    --secondaryBackgroundColor : #051238;
+    --primaryTextColor : rgb(255, 255, 255);
+    --secondaryText: rgba(255, 255, 255, 0.6);
+    --invertSecondaryText: rgba(255, 255, 255, 0.6);
+    --NavHeroSplit: rgba(128, 128, 128, 0.271);
+    --ActiveGColor: #06225a;
+    --ActiveGColor2: #07042b;
+    --primaryHoverColor: hsla(220, 71%, 29%, 0.8);
+    --primaryHoverHelper: hsl(220, 48%, 25%);
+    --CTAbuttonColor1:  #ff48fc;
+    --CTAbuttonColor2:  #b04aff;
+    --MenuBackground: #051238;
+    --WatchColor1: #401d86;
+    --WatchColor2: #0a094c;
+    --WatchColor3: #484C84;
+    --box: #ffffff1a;
+    --box1: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'Playfair';
+    src: url(/public/Playfair_Display_SC/PlayfairDisplaySC-Regular.ttf);
+}
+@font-face{
+    font-family: 'Lato';
+    src: url(/public/Lato/Lato-Regular.ttf);
+}
+
+/* scroll-snap watch this */
+
+/* .exercise{
+    height: 200px;
+    width: 150px;
+    background: red;
+    clip-path: path("M 10,40 L 60,40 A 20,20 0,0,0 80,20 L 80,10 A 10,10 0,0,1 90,0 L 140,0 A 10,10 0,0,1 150,10 L 150, 190 A 10,10 0,0,1 140,200 L 10,200 A 10,10 0,0,1 0,190 L 0,60 A 20,20 0,0,1 20,40 Z");
+} */
+
+
+.carBackground{
+    background: var(--secondaryBackgroundColor);
+}
+
+.grid-bgCard {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--box) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--box) 1px, transparent 1px);
+  background-size: 20px 20px; /* size of squares */
+  background-repeat: repeat;
+  
+  /* fade out bottom */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.grid-bg {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--box) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--box) 1px, transparent 1px);
+  background-size: 40px 40px; /* size of squares */
+  background-repeat: repeat;
+  
+  /* fade out bottom */
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+body{
+    background: var(--primaryBackgroundColor);
+    color: var(--primaryTextColor);
+    transition:all 0.2s ease-in-out;
+}
+
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gradient-border {
+  border-bottom: 0.5px solid;
+  border-top: 0.5px solid;
+  border-image: linear-gradient(to right, #7b7b7b 20%, #457b9d00 70%) 1;
+}
+
+@layer components{
+    body{
+        @apply
+        text-[4vw] md:text-[3vw] lg:text-[1vw]
+
+    }
+
+    /* text sizes */
+    .heroText{
+        @apply
+        text-[9vw] md:text-[6vw] lg:text-[3vw]
+        font-serif lg:tracking-wider tracking-widest
+    }
+    
+    .button{
+        @apply
+        text-[4vw] md:text-[3vw] lg:text-[1vw] 
+    }
+
+    .numbers{
+        @apply
+        text-[15vw] md:text-[10vw] lg:text-[4.8vw]
+    }
+
+    .Heading{
+        @apply
+        text-[9vw] md:text-[6vw] lg:text-[3vw]
+        font-serif lg:tracking-wider tracking-widest 
+    }
+    .subtitle{
+        @apply
+        text-[4vw] md:text-[3vw] lg:text-[1vw] 
+        tracking-wider text-[var(--secondaryText)]
+        text-justify
+    }
+
+    .Heading2{
+        @apply
+        text-[8vw] md:text-[6vw] lg:text-[2vw]
+        font-medium tracking-wider
+    }
+    .paragraph{
+        @apply
+        text-[4vw] md:text-[3vw] lg:text-[1vw] 
+        tracking-wider text-[var(--secondaryText)]
+        text-justify
+    }
+    
+    .cardTitle{
+        @apply 
+        font-medium tracking-widest
+    }
+    
+    .clipContent .iconDiv{
+        @apply
+        bg-[var(--CTAbuttonColor1)]/20 
+        p-4 rounded-full
+    }
+    
+    .clipContent h1{
+        @apply
+        font-medium
+    }
+    
+    .clipContent p{
+        @apply
+        text-[var(--secondaryText)]
+    }
+
+    .Socialicon{
+        @apply
+        scale-150
+        text-[var(--CTAbuttonColor1)]
+    }
+    
+
+    .MainPaddingY{
+        @apply
+        py-8
+    }
+
+    .flex-center{
+        @apply
+        flex items-center justify-center
+    }
+
+    .cardTailwind{
+        @apply
+        w-full
+        border-1 border-[var(--NavHeroSplit)] 
+        rounded-2xl tracking-wider
+        px-4 py-4 xl:py-2 md:px-8
+    }
+    .cardTailwindAnim{
+        @apply
+        w-full
+        border-1 border-[var(--NavHeroSplit)] 
+        rounded-2xl tracking-wider
+        
+    }
+
+    .cardTailwindH1{
+        @apply
+        lg:leading-25
+        font-['Playfair'] font-bold
+    }
+
+    .skills img{
+        @apply
+        h-14 w-fit 2xl:h-20
+    }
+
+    .sunRay{
+        @apply
+        bg-gradient-to-l to-[var(--CTAbuttonColor2)] from-[var(--CTAbuttonColor1)]
+        h-1.5 w-1.5 absolute rounded-full
+    }
+    
+    .cardShadow{
+        @apply
+        shadow-sm hover:shadow-lg
+        transition-all
+    }
+
+    .AboutMeCard{
+        @apply
+        col-span-12 lg:col-span-6 bg-[var(--secondaryBackgroundColor)]
+        p-4 rounded-xl border-1 border-[var(--NavHeroSplit)]
+        shadow-sm hover:shadow-lg transition-all
+    }
+
+    .AboutMeCard h1, .tech h1{
+        @apply
+        text-xl md:text-xl lg:text-2xl
+        font-medium tracking-wider  font-serif
+    }
+
+    .AboutMeCard p, .AboutMeCard ul li{
+        @apply
+        text-[4vw] md:text-[3vw] lg:text-[1vw] 
+        tracking-wider text-[var(--secondaryText)]
+        text-justify
+    }
+    
+
+    .tech{
+        @apply
+        bg-[var(--secondaryBackgroundColor)]
+        p-4 rounded-xl border-1 border-[var(--NavHeroSplit)]
+        shadow-sm
+    }
+
+    .technology{
+        @apply
+        px-4 py-1 md:px-16 md:py-2 bg-gradient-to-l to-[var(--CTAbuttonColor2)] from-[var(--CTAbuttonColor1)]
+        w-fit text-white rounded-full border-1 border-[var(--NavHeroSplit)]
+        shadow-sm hover:shadow-lg transition-all
+        text-[4vw] md:text-[3vw] lg:text-[1vw] font-bold
+    }
+
+}
