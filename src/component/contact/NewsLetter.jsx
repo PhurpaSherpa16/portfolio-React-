@@ -11,7 +11,8 @@ export default function NewsLetter() {
       <div className='clipContent h-full
        p-8 flex flex-col gap-4  w-full'>
         <div className='flex flex-col gap-6'>
-          <h2 className='text-[6vw] md:text-[4vw] lg:text-[1.5vw] font-medium font-serif'>Have Something To Tell</h2>
+          <h2 className='text-[6vw] md:text-[4vw] lg:text-[1.5vw] font-medium font-serif'>Have Something To Tell
+          </h2>
           <input type="text" placeholder="Enter Message"
           className='p-4 bg-gray-200 text-black lg:w-full lg:pr-32 border-1 border-[var(--NavHeroSplit)]
           rounded-lg'/>

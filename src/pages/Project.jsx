@@ -3,12 +3,6 @@ import { projects } from "../assets/data/dynamicData";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import {SplitText } from 'gsap/all' 
-import ExpenseTracker from '../assets/images/ExpenseTracker.png'
-import NGO from '../assets/images/project3.png'
-import portfolio from '../assets/images/project2.png'
-import { Link } from "react-router-dom";
-
-
 
 export default function ParallaxExample() {
 
@@ -77,7 +71,8 @@ export default function ParallaxExample() {
                   </div>
                   <div className="col-span-12 lg:col-span-6 flex lg:items-end lg:justify-end
                   overflow-hidden w-full h-fit object-cover">
-                    <img src={item.image} alt="image" className="h-60 w-fit rounded-2xl"/>
+                    <img src={item.image} alt="image" className="h-60 w-fit rounded border borderColor
+                    "/>
                   </div>
                 </div>
                 :
@@ -87,7 +82,7 @@ export default function ParallaxExample() {
                 items-center justify-center
                 "  key={index}>
                   <div className="col-span-12 lg:col-span-6 overflow-hidden w-fit h-fit object-cover">
-                    <img src={item.image} alt="image" className="h-60 w-fit rounded-2xl"/>
+                    <img src={item.image} alt="image" className="h-60 w-fit rounded border borderColor"/>
                   </div>
                   <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
                     <a href={item.path} target="blank" className="flex  gap-2 hover:underline cursor-pointer">

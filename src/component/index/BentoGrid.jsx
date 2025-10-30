@@ -16,12 +16,13 @@ import { useTheme } from "../themeHandler/ThemeProvider";
 import SkillCarousel from "./SkillCarousel";
 import WatchFace from './watchFace'
 import AnimatedGridBackground from "./AnimatedGridBaclground";
+import { FaLink } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 export default function BentoGrid() {
   const {theme} = useTheme()
   useGSAP(()=>{
-
     const tl = gsap.timeline({ease:'power1.inOut'})
 
     tl.from('.jupiter',{
@@ -42,15 +43,25 @@ export default function BentoGrid() {
         <div className='col-span-6 lg:col-span-3'>
             <WatchFace/>
         </div>
-        <div className='col-span-6 relative lg:col-span-3 w-full border-1 border-[var(--NavHeroSplit)] 
-        rounded-2xl tracking-wider flex items-center justify-center
-        carBackground cardShadow overflow-hidden px-6 lg:px-0'>
-            <AnimatedGridBackground/>
-            <div className='grid gap-2 2xl:gap-4'>
-              <h1 className="font-['Playfair'] font-bold leading-20 numbers text-[var(--CTAbuttonColor2)]">50+</h1>
-              <div>
-                <p className='cardTitle'>Projects Delivered</p>
-                <p className='text-[var(--secondaryText)]'>Modern Design</p>
+        <div className='col-span-6 relative lg:col-span-3 w-full border border-[var(--NavHeroSplit)]
+        rounded-2xl overflow-hidden'>
+            <div className='relative h-full w-full overflow-hidden'>
+                <img
+                  src="https://ik.imagekit.io/k05httq0p/Blog/NextResponsiveLoginRegisterForm.png?tr=w-800,h-500,q-80"
+                  alt="Responsive login and register form preview"
+                  loading="lazy"
+                  decoding="async"
+                  className="object-cover w-full h-full relative"
+                />
+              {/* <div className="absolute z-20 h-full inset-0 w-full bg-black/40"/> */}
+              <div className="
+              absolute z-20 bottom-0 w-full p-4 pt-8 bg-gradient-to-t from-black/90 to-black/0">
+                <a href="https://phurpasherpa-blog.vercel.app/blog/SOMakMJXlJd8dc3bkTKvB5b5pYl1_1761669285962" 
+                target="blank" title="Blog on Responsive Login and Signup UI"
+                className="font-medium text-white tracking-wide hover:underline">Next Js, Tailwind and GSAP</a>
+                <div>
+                  <p className='text-white/80'>Responsive Login & Signup UI</p>
+                </div>
               </div>
             </div>
         </div>
@@ -67,8 +78,8 @@ export default function BentoGrid() {
               <div className="bg-gradient-to-l from-[var(--CTAbuttonColor1)] to-[var(--CTAbuttonColor2)]
               border-1 border-[var(--NavHeroSplit)] backdrop-blur-[20px] p-6 z-10 relative top-16 2xl:top-24 grid gap-2 rounded-2xl">
                 <div>
-                  <p className="cardTitle text-white ">FinTech Finance</p>
-                  <p className="text-white/60 ">Visual Charts for quick, <br />
+                  <p className="cardTitle text-white">FinTech Finance</p>
+                  <p className="text-white/60">Visual Charts for quick, <br />
                   confident decisons.</p>
                 </div>
                 <a className="flex items-center gap-2 text-white
@@ -81,41 +92,41 @@ export default function BentoGrid() {
           </div>
         </div>
         <div className='col-span-12 lg:col-span-4 w-full grid md:flex xl:grid gap-6 lg:gap-4'>
-            <div className="flex items-center justify-center
+            <div className="flex items-center justify-center w-full md:w-1/2 lg:w-full
             rounded-2xl p-4 py-8 lg:py-4
             border-1 card border-[var(--NavHeroSplit)] bg-gradient-to-l from-[var(--CTAbuttonColor1)] to-[var(--CTAbuttonColor2)]
             ">
               <div className='grid gap-6 lg:gap-4'>
               <div>
-                <p className={`${theme==='light'?'text-white':'text-white'}`}>Want to redesign your website?</p>
+                <p className='text-white font-medium tracking-wide'>Want to redesign your website?</p>
                 <p className={`text-white/60`}>Your website deserves more than a facelift, 
                   it deserve a fresh, high performing experience. 
                 </p>
               </div>
-              <button className={`${theme==='light'?'text-black':'text-white'}
-              border-1 border-gray-100/20 w-fit px-8 rounded-2xl flex py-1 gap-2 items-center
+              <Link to={'/projects'} className={`${theme==='light'?'text-black':'text-white'}
+              border-1 border-gray-100/20 w-fit px-8 rounded flex py-1 gap-2 items-center
               cursor-pointer bg-[var(--secondaryBackgroundColor)] transition-all
-              shadow-sm hover:shadow-lg hover:shadow-black/60`}>
-                <span>Download CV</span>
-                <BiDownload/>
-              </button>
+              shadow-sm hover:shadow-lg hover:shadow-black/60 flex-center`}>
+                <span>View My Work</span>
+                <RiExternalLinkFill/>
+              </Link>
             </div>
             </div>
-            <div className='cardTailwindAnim md:w-1/2 lg:w-full flex flex-col items-center justify-center carBackground cardShadow
+            <div className='cardTailwindAnim w-full md:w-1/2 lg:w-full flex flex-col items-center justify-center carBackground cardShadow
             relative overflow-hidden'>
                 <AnimatedGridBackground/>
-                <div className="relative z-10 py-16 lg:py-6">
+                <div className="relative z-10 py-16 lg:py-6 flex-center flex-col">
                   <h1 className=" font-['Playfair'] font-bold leading-20 numbers bg-gradient-to-l from-[var(--CTAbuttonColor2)]
                 to-[var(--CTAbuttonColor1)] text-transparent bg-clip-text">UI/UX</h1>
-                <p className="text-[var(--secondaryText)] uppercase tracking-widest">Keep Minimial</p>
+                <p className="text-[var(--secondaryText)] uppercase tracking-wide">Keep Minimial</p>
                 </div>
             </div>
         </div>
         <div className='col-span-12 h-100 lg:h-full lg:col-span-2 bg-gradient-to-b from-[var(--CTAbuttonColor2)]
         overflow-y-hidden
         rounded-2xl card relative flex items-center justify-center cardShadow'>
-            <h1 className="text-4xl font-bold font-['Playfair'] relative bottom-5 z-10
-            text-white">Journal</h1>
+            <a href={'https://phurpasherpa-blog.vercel.app/'} target="blank" className="text-4xl font-bold font-['Playfair'] relative bottom-5 z-20
+            text-white ">Journal</a>
             <div className="absolute bottom-[-1rem] 2xl:left-3 left-0 z-20">
                 <img src={astronut} alt="astronut" className="astronut h-50" />
             </div>

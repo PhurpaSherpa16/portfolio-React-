@@ -23,7 +23,7 @@
     --WatchColor3: #484C84;
     --box: #0000001a;
     --box1: #000000;
-    
+    --whiteBlack: #ffffff;
 }
 
 
@@ -46,6 +46,7 @@
     --WatchColor3: #484C84;
     --box: #ffffff1a;
     --box1: #ffffff;
+    --whiteBlack: #ffffff;
 }
 
 *,
@@ -62,15 +63,6 @@
     font-family: 'Lato';
     src: url(/public/Lato/Lato-Regular.ttf);
 }
-
-/* scroll-snap watch this */
-
-/* .exercise{
-    height: 200px;
-    width: 150px;
-    background: red;
-    clip-path: path("M 10,40 L 60,40 A 20,20 0,0,0 80,20 L 80,10 A 10,10 0,0,1 90,0 L 140,0 A 10,10 0,0,1 150,10 L 150, 190 A 10,10 0,0,1 140,200 L 10,200 A 10,10 0,0,1 0,190 L 0,60 A 20,20 0,0,1 20,40 Z");
-} */
 
 
 .carBackground{
@@ -127,7 +119,6 @@ body{
     body{
         @apply
         text-[4vw] md:text-[3vw] lg:text-[1vw]
-
     }
 
     /* text sizes */
@@ -173,13 +164,18 @@ body{
     
     .cardTitle{
         @apply 
-        font-medium tracking-widest
+        font-medium tracking-wide
     }
     
     .clipContent .iconDiv{
         @apply
         bg-[var(--CTAbuttonColor1)]/20 
         p-4 rounded-full
+    }
+
+    .borderColor{
+        @apply
+        border-[var(--NavHeroSplit)]
     }
     
     .clipContent h1{
@@ -281,6 +277,17 @@ body{
         w-fit text-white rounded-full border-1 border-[var(--NavHeroSplit)]
         shadow-sm hover:shadow-lg transition-all
         text-[4vw] md:text-[3vw] lg:text-[1vw] font-bold
+    }
+
+    .socialIcons{
+        @apply
+        transition-all duration-300 ease-in-out
+        hover:scale-125
+    }
+
+    .transitonSmooth{
+        @apply
+        transition-all duration-300 ease-in-out
     }
 
 }

@@ -67,7 +67,7 @@ export default function PublicLayout() {
         <div className='grid grid-cols-12 h-screen w-screen'>
           {isLg?
             <>
-          <div id='navbar' className='hidden lg:block col-span-3 sticky top-0 shadow-lg border-r-1 border-[var(--NavHeroSplit)]'>
+          <div id='navbar' className='hidden lg:block col-span-3 sticky top-0 shadow border-r border-[var(--NavHeroSplit)]'>
             <Navbar/>
           </div>
           <div className='absolute right-0 top-0 z-20'>
@@ -77,7 +77,7 @@ export default function PublicLayout() {
           :
           <>
             {/* {mobileNavShow?<MobileNavbar/>:''} */}
-            <MobileNavbar mobileNavShow={mobileNavShow} handleMenuOpen={handleMenuOpen}/>
+            <MobileNavbar  mobileNavShow={mobileNavShow} handleMenuOpen={handleMenuOpen}/>
             <div className='fixed top-5 md:top-10  z-30 flex items-center justify-end md:gap-4 w-full'>
               <div className='scale-70 md:scale-100 bg-[var(--primaryHoverHelper)] rounded-full p-4
               border-1 border-[var(--NavHeroSplit)] relative overflow-hidden h-20 w-20 flex items-center justify-center'

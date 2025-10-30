@@ -8,14 +8,11 @@ export default function watchFace() {
         <div className='bg-gradient-to-l from-[var(--WatchColor1)] to-[var(--WatchColor2)] backdrop-blur-xl text-white flex items-center justify-center
         h-fit w-full p-2 px-6 rounded-4xl relative border-2 border-gray-300/40'>
             <div className='grid gap-2 2xl:gap-4 w-full h-fit items-center justify-center'>
-                <h1 className='font-["Playfair"] leading-20 font-bold numbers'>90%</h1>
-                <span className='absolute top-2  left-10 font-["Playfair"] leading-20 font-bold text-[6vw] text-white/60
-                 select-none blur-md'>
-                90%
-                </span>
+                <h1 className='font-["Playfair"] leading-20 font-bold text-6xl'>90%
+                </h1>
                 <div>
-                <p className='cardTitle'>Client Satisfaction</p>
-                <p className='text-[var(--invertSecondaryText)]'>High retention</p>
+                <p className='cardTitle'>Projects</p>
+                <p className='text-[var(--invertSecondaryText)]'>Modern and Minimal</p>
                 </div>
             </div>
         </div>

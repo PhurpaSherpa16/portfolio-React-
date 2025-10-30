@@ -5,6 +5,8 @@ import p1 from '../../assets/images/profileDarkAmin.png'
 import p2 from '../../assets/images/profileLightAnim.png'
 import { useTheme } from '../themeHandler/ThemeProvider';
 import { BsFacebook, BsGithub, BsInstagram, BsX } from 'react-icons/bs';
+import { FaLinkedin } from "react-icons/fa";
+
 
 export default function Navbar() {
   const {theme} = useTheme()
@@ -13,7 +15,7 @@ export default function Navbar() {
 
 
   return (
-    <div className='w-full relative lg:h-screen'>
+    <div className='w-full relative lg:h-full'>
       <div className='w-full flex flex-col justify-between h-full'>
         {/* Profile Picture*/}
         <div className='flex items-end justify-between'>
@@ -71,18 +73,18 @@ export default function Navbar() {
           {/* Footer Part */}
           <div className='w-full px-12 grid gap-2 p-4'>
             <div className='flex justify-between items-center'>
-              <a href="https://www.facebook.com/" target='blank' title='Gitbub'>
+              <a href="https://github.com/PhurpaSherpa16" target='blank' title='Gitbub'>
                 <BsGithub className='h-[1.6vw] w-fit 
                 hover:text-[var(--CTAbuttonColor1)] rounded-full cardShadow'/>
               </a>
-              <a href="https://www.facebook.com/" target='blank' title='Instagram'>
+              <a href="https://www.instagram.com/" target='blank' title='Instagram'>
                 <BsInstagram className='h-[1.6vw] w-fit hover:text-[var(--CTAbuttonColor1)] rounded-lg cardShadow'/>
               </a>
-              <a href="https://www.facebook.com/" target='blank' title='X'>
+              <a href="https://www.x.com/" target='blank' title='X'>
                 <BsX className='h-[2.2vw] w-fit hover:text-[var(--CTAbuttonColor1)]'/>
               </a>
-              <a href="https://www.facebook.com/" target='blank' title='facebook'>
-                <BsFacebook className='h-[1.6vw] w-fit hover:text-[var(--CTAbuttonColor1)] rounded-full cardShadow'/>
+              <a href="https://www.linkedin.com/in/phurpa-sherpa-260a3a121/" target='blank' title='Linkedin'>
+                <FaLinkedin className='h-[1.6vw] w-fit hover:text-[var(--CTAbuttonColor1)] cardShadow'/>
               </a>
             </div>
             <h6 className='text-xs text-center button'>© 2025, Crafted with ❤️ <br />|| Built with React & Tailwind </h6>

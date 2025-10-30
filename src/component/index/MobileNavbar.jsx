@@ -27,7 +27,7 @@ export default function MobileNavbar({mobileNavShow, handleMenuOpen}) {
     }, [mobileNavShow])
 
   return (
-    <div className='mobileNavDiv origin-[30%_0%] scale-0 opacity-0 absolute left-0 top-20 md:top-50 z-30 p-4 md:p-8 w-full overflow-hidden'>
+    <div className='mobileNavDiv origin-[30%_0%] scale-0 opacity-0 absolute left-0 top-20 md:top-30 z-30 p-4 md:p-8 w-full overflow-hidden'>
       <div className='bg-[var(--MenuBackground)] shadow-sm shadow-gray-200/60 rounded-xl
       border-2 border-[var(--NavHeroSplit)] overflow-hidden
       md:flex '>

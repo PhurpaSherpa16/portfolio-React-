@@ -20,8 +20,6 @@ export default function AnimatedGridBackground() {
     return () => window.removeEventListener('mousemove', mouseMove)
   }, [])
 
-  console.log(xAxis, yAxis)
-
   return (
     <div ref={gridDivRef} className="absolute z-0 h-full w-full">
       <div

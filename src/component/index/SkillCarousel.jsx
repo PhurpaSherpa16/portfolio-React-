@@ -16,6 +16,7 @@ export default function SkillCarousel() {
     const [animationMode, setAnimationMode] = useState(false)
 
     const totalBackGroundImage = SliderSkills.length
+    
 
     const setIndex = (index) =>{
         const newIndex = (index + totalBackGroundImage) % totalBackGroundImage

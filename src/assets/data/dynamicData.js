@@ -1,6 +1,6 @@
 import ExpenseTracker from '../images/ExpenseTracker.png'
 import NGO from '../images/project3.png'
-import portfolio from '../images/project2.png'
+import portfolio from '../images/portfolio.png'
 import react from '../../assets/images/react.svg'
 import figma from '../../assets/images/figma.svg'
 import html from '../../assets/images/html.svg'
@@ -9,9 +9,16 @@ import tailwind from '../../assets/images/tailwind.svg'
 
 export const projects = [
     {
-    title: "Personal Portfolio",
+    title: "Blogging Platform",
+    desc: "Blogging platform that allows users to create, edit, and share blog posts with a community. It features user authentication, rich text editing, and social sharing capabilities.",
+    tech: ["Next ", "Tailwind", "GSAP", "Firebase"],
+    image: 'https://ik.imagekit.io/k05httq0p/Blog/NextResponsiveLoginRegisterForm.png?updatedAt=1761667673877',
+    path:'https://expense-tracker-phurpa.netlify.app'
+    },
+    {
+    title: "Expense Tracker",
     desc: "A modern portfolio website to showcase my skills, projects, and journey. It highlights my work with clean design and smooth animations, making it easier for visitors to explore who I am and what I do.",
-    tech: ["Next.js", "Tailwind", "GSAP"],
+    tech: ["React ", "Tailwind", "GSAP"],
     image: ExpenseTracker,
     path:'https://expense-tracker-phurpa.netlify.app'
     },
