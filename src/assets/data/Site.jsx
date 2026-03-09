@@ -13,6 +13,7 @@ import Shikshadeep from '../images/featured_project.png'
 import ExpenseTracker from '../images/ExpenseTracker.png'
 import NGO from '../images/project3.png'
 import portfolio from '../images/portfolio.png'
+import { BsDribbble, BsGithub, BsLinkedin } from "react-icons/bs";
 
 export const menuList = [
     { label: "Home", path: "/", icon: <HouseHeart className='size-4' /> },
@@ -293,3 +294,18 @@ export const aboutMe = {
         }
     ]
 }
+
+export const socialSite = [
+    {
+        label: 'Github', link: 'https://github.com/PhurpaSherpa16',
+        icon: <BsGithub className='size-4 text-[var(--secondaryText)] hover:text-[var(--CTAbuttonColor1)] transition-colors duration-300 hover:scale-120' />
+    },
+    {
+        label: 'Dribble', link: 'https://dribbble.com/ksab-khanal',
+        icon: <BsDribbble className='size-4 text-[var(--secondaryText)] hover:text-[var(--CTAbuttonColor1)] transition-colors duration-300 hover:scale-120' />
+    },
+    {
+        label: 'Linkedin', link: 'https://www.linkedin.com/in/phurpa-sherpa/',
+        icon: <BsLinkedin className='size-4 text-[var(--secondaryText)] hover:text-[var(--CTAbuttonColor1)] transition-colors duration-300 hover:scale-120' />
+    }
+]
