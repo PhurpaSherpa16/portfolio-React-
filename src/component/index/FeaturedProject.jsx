@@ -44,7 +44,7 @@ export default function FeaturedProject() {
                     <div className='space-y-3'>
                         <div>
                              <span className="text-[10px] uppercase tracking-widest
-                            text-center text-[var(--CTAbuttonColor1)] font-bold mb-1">
+                            text-center font-bold mb-1">
                                 {fetauredProject.category}
                             </span>
                             <h1 className='bentoH1'>School CMS Platform</h1>
@@ -70,13 +70,13 @@ export default function FeaturedProject() {
                         <ul className='space-y-1'>
                             {fetauredProject.features.slice(0,4).map((item, i) => (
                                 <li key={i} className="bentoP flex items-start gap-2">
-                                    <span className="mt-1.5 size-1.5 rounded-full bg-[var(--CTAbuttonColor1)] shrink-0" />
+                                    <span className="mt-1.5 size-1.5 rounded-full bg-indigo-200/20 shrink-0" />
                                     {item}
                                 </li>
                             ))}
                             {fetauredProject.features.length > 4 && (
                                 <div className="pt-1">
-                                    <span className="text-[10px] font-semibold text-[var(--CTAbuttonColor1)] bg-indigo-100/50 px-2 py-0.5 rounded-full
+                                    <span className="text-[10px] font-semibold bg-indigo-200/20 px-2 py-0.5 rounded-full
                                     spaceNormal">
                                         +{fetauredProject.features.length - 4} More
                                     </span>
