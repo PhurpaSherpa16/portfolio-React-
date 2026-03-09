@@ -1,13 +1,19 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom"
-import Index from "./pages/Index"
-import Contact from "./pages/Contact"
-import Public from "./layout/PublicRoute"
+import { BrowserRouter } from "react-router-dom"
+import MainRoutes from "./routes/Routes"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
+
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
   return (
-    <BrowserRouter>
-      <Public/>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <MainRoutes />
+        <Toaster />
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
 

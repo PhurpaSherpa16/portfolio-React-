@@ -1,4 +1,4 @@
-import AnimatedGridBaclground from "../component/index/AnimatedGridBaclground";
+import AnimatedGridBaclground from "@/component/index/AnimatedGridBaclground";
 import Spline from "@splinetool/react-spline";
 
 export default function GridSpotlight() {

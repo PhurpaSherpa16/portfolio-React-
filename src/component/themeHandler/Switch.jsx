@@ -4,7 +4,7 @@ import { BsStars } from "react-icons/bs";
 import gsap from 'gsap';
 
 
-export default function Switch() {
+export default function Switch({scale}) {
   const stars = useRef(null);
   const moonRef = useRef(null);
   const ray = useRef(null)
@@ -148,7 +148,7 @@ export default function Switch() {
 
   return (
     <div>
-        <div className='relative scale-50'>
+        <div className={`relative ${scale}`}>
         <button className='cursor-pointer' onClick={()=>toggleThemeMode()}>
             <div className='h-20 w-20 rounded-full flex items-center justify-center relative'>
                 <div className='h-full w-full flex items-center justify-center relative'>

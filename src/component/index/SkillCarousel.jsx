@@ -79,10 +79,14 @@ export default function SkillCarousel() {
     <div className='h-full w-full rounded-2xl
     border-1 border-[var(--NavHeroSplit)] shadow-sm relative
     flex items-center justify-center'>
+
+        {/* Background */}
       <div className='absolute top-0 h-full w-full'>
             <img src={currentBackground.image} alt="image"
             className={`backgroundImage object-cover h-full w-full`}/>
       </div>
+      
+      {/* skills */}
       <div className='absolute bottom-4 p-2 bg-black/30 grid gap-2
       backdrop-blur-2xl rounded-lg border-1 border-[var(--NavHeroSplit)] shadow-sm'>
         <div className='Skills flex gap-2'>

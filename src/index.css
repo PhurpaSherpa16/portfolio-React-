@@ -1,7 +1,10 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&display=swap');
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import url('https://unpkg.com/leaflet/dist/leaflet.css');
 
 
+@custom-variant dark (&:is(.dark *));
 
 :root{
     --primaryBackgroundColor : #f7f7f7;
@@ -21,11 +24,42 @@
     --WatchColor1: #401d86;
     --WatchColor2: #0a094c;
     --WatchColor3: #484C84;
-    --box: #0000001a;
+    --box: #5959591f;
     --box1: #000000;
     --whiteBlack: #ffffff;
+    --radius : 0.625rem;
+    --background : oklch(1 0 0);
+    --foreground : oklch(0.145 0 0);
+    --card : oklch(1 0 0);
+    --card-foreground : oklch(0.145 0 0);
+    --popover : oklch(1 0 0);
+    --popover-foreground : oklch(0.145 0 0);
+    --primary : oklch(0.205 0 0);
+    --primary-foreground : oklch(0.985 0 0);
+    --secondary : oklch(0.97 0 0);
+    --secondary-foreground : oklch(0.205 0 0);
+    --muted : oklch(0.97 0 0);
+    --muted-foreground : oklch(0.556 0 0);
+    --accent : oklch(0.97 0 0);
+    --accent-foreground : oklch(0.205 0 0);
+    --destructive : oklch(0.577 0.245 27.325);
+    --border : oklch(0.922 0 0);
+    --input : oklch(0.922 0 0);
+    --ring : oklch(0.708 0 0);
+    --chart-1 : oklch(0.646 0.222 41.116);
+    --chart-2 : oklch(0.6 0.118 184.704);
+    --chart-3 : oklch(0.398 0.07 227.392);
+    --chart-4 : oklch(0.828 0.189 84.429);
+    --chart-5 : oklch(0.769 0.188 70.08);
+    --sidebar : oklch(0.985 0 0);
+    --sidebar-foreground : oklch(0.145 0 0);
+    --sidebar-primary : oklch(0.205 0 0);
+    --sidebar-primary-foreground : oklch(0.985 0 0);
+    --sidebar-accent : oklch(0.97 0 0);
+    --sidebar-accent-foreground : oklch(0.205 0 0);
+    --sidebar-border : var(--NavHeroSplit);
+    --sidebar-ring : oklch(0.708 0 0);
 }
-
 
 [data-theme = 'dark']{
     --primaryBackgroundColor : linear-gradient(to bottom, #000000, #06225a);
@@ -44,7 +78,7 @@
     --WatchColor1: #401d86;
     --WatchColor2: #0a094c;
     --WatchColor3: #484C84;
-    --box: #ffffff1a;
+    --box: #ffffff12;
     --box1: #ffffff;
     --whiteBlack: #ffffff;
 }
@@ -55,6 +89,18 @@
   box-sizing: border-box;
 }
 
+.space{
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+.spaceNormal{
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
 @font-face{
     font-family: 'Playfair';
     src: url(/public/Playfair_Display_SC/PlayfairDisplaySC-Regular.ttf);
@@ -63,7 +109,6 @@
     font-family: 'Lato';
     src: url(/public/Lato/Lato-Regular.ttf);
 }
-
 
 .carBackground{
     background: var(--secondaryBackgroundColor);
@@ -77,7 +122,7 @@
     linear-gradient(to bottom, var(--box) 1px, transparent 1px);
   background-size: 20px 20px; /* size of squares */
   background-repeat: repeat;
-  
+
   /* fade out bottom */
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
@@ -91,7 +136,7 @@
     linear-gradient(to bottom, var(--box) 1px, transparent 1px);
   background-size: 40px 40px; /* size of squares */
   background-repeat: repeat;
-  
+
   /* fade out bottom */
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
@@ -115,6 +160,16 @@ body{
   border-image: linear-gradient(to right, #7b7b7b 20%, #457b9d00 70%) 1;
 }
 
+.clipTop {
+  clip-path: polygon(
+    0% 0%, 
+    100% 0%, 
+    100% 85%, 
+    50% 100%, 
+    0% 85%
+  );
+}
+
 @layer components{
     body{
         @apply
@@ -124,10 +179,10 @@ body{
     /* text sizes */
     .heroText{
         @apply
-        text-[9vw] md:text-[6vw] lg:text-[3vw]
+        text-[7vw] md:text-[5vw] lg:text-[3vw]
         font-serif lg:tracking-wider tracking-widest
     }
-    
+
     .button{
         @apply
         text-[4vw] md:text-[3vw] lg:text-[1vw] 
@@ -138,19 +193,20 @@ body{
         text-[15vw] md:text-[10vw] lg:text-[4.8vw]
     }
 
-    .Heading{
+    /* .Heading{
         @apply
-        text-[9vw] md:text-[6vw] lg:text-[3vw]
+        text-[7vw] md:text-[5vw] lg:text-[3vw]
+        font-bold
         font-serif lg:tracking-wider tracking-widest 
     }
     .subtitle{
         @apply
-        text-[4vw] md:text-[3vw] lg:text-[1vw] 
+        text-[4vw] md:text-[3vw] lg:text-[1vw]
         tracking-wider text-[var(--secondaryText)]
         text-justify
-    }
+    } */
 
-    .Heading2{
+    /* .Heading2{
         @apply
         text-[8vw] md:text-[6vw] lg:text-[2vw]
         font-medium tracking-wider
@@ -160,13 +216,13 @@ body{
         text-[4vw] md:text-[3vw] lg:text-[1vw] 
         tracking-wider text-[var(--secondaryText)]
         text-justify
-    }
-    
+    } */
+
     .cardTitle{
         @apply 
         font-medium tracking-wide
     }
-    
+
     .clipContent .iconDiv{
         @apply
         bg-[var(--CTAbuttonColor1)]/20 
@@ -177,12 +233,12 @@ body{
         @apply
         border-[var(--NavHeroSplit)]
     }
-    
+
     .clipContent h1{
         @apply
         font-medium
     }
-    
+
     .clipContent p{
         @apply
         text-[var(--secondaryText)]
@@ -193,7 +249,6 @@ body{
         scale-150
         text-[var(--CTAbuttonColor1)]
     }
-    
 
     .MainPaddingY{
         @apply
@@ -217,7 +272,7 @@ body{
         w-full
         border-1 border-[var(--NavHeroSplit)] 
         rounded-2xl tracking-wider
-        
+
     }
 
     .cardTailwindH1{
@@ -236,7 +291,7 @@ body{
         bg-gradient-to-l to-[var(--CTAbuttonColor2)] from-[var(--CTAbuttonColor1)]
         h-1.5 w-1.5 absolute rounded-full
     }
-    
+
     .cardShadow{
         @apply
         shadow-sm hover:shadow-lg
@@ -262,7 +317,6 @@ body{
         tracking-wider text-[var(--secondaryText)]
         text-justify
     }
-    
 
     .tech{
         @apply
@@ -290,4 +344,147 @@ body{
         transition-all duration-300 ease-in-out
     }
 
+    .bentoH1{
+        @apply
+        font-bold text-2xl 2xl:text-3xl;
+    }
+
+    .bentoP{
+        @apply text-sm text-[var(--secondaryText)];
+    }
+
+    .bentoPItalic{
+        @apply
+        text-sm italic
+    }
+
+    .leftBorder{
+        @apply p-2 2xl:p-3 border-l-4 border-[var(--CTAbuttonColor1)];
+    }
+
+    .bentoWhiteCard {
+        @apply border border-[var(--NavHeroSplit)] h-full w-full 
+               bg-[var(--secondaryBackgroundColor)] p-4 rounded-lg space-y-4 
+               flex flex-col justify-center items-center lg:items-start 
+               hover:shadow-lg transition-all;
+    }
+    .bentoSmallButton{
+        @apply
+        inline-flex px-3 py-2 items-center gap-2 rounded-full 
+        font-semibold transition-all w-fit 
+        hover:gap-4 hover:shadow-lg hover:shadow-[var(--CTAbuttonColor1)]/25 active:scale-95
+        text-sm
+    }
+
+    .socialIcons{
+        @apply
+        size-4 hover:scale-125 transition-all duration-300 ease-in-out
+    }
+
+    .mainDivLayout{
+        @apply
+        md:max-w-[640px] mx-auto lg:max-w-full
+        p-4 lg:p-8 py-16 space-y-8 lg:space-y-12
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: var(--NavHeroSplit);
+        border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: var(--secondaryText);
+    }
+}
+
+@theme inline {
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-display: 'Playfair', serif;
+    --radius-sm : calc(var(--radius) - 4px);
+    --radius-md : calc(var(--radius) - 2px);
+    --radius-lg : var(--radius);
+    --radius-xl : calc(var(--radius) + 4px);
+    --radius-2xl : calc(var(--radius) + 8px);
+    --radius-3xl : calc(var(--radius) + 12px);
+    --radius-4xl : calc(var(--radius) + 16px);
+    --color-background : var(--background);
+    --color-foreground : var(--foreground);
+    --color-card : var(--card);
+    --color-card-foreground : var(--card-foreground);
+    --color-popover : var(--popover);
+    --color-popover-foreground : var(--popover-foreground);
+    --color-primary : var(--primary);
+    --color-primary-foreground : var(--primary-foreground);
+    --color-secondary : var(--secondary);
+    --color-secondary-foreground : var(--secondary-foreground);
+    --color-muted : var(--muted);
+    --color-muted-foreground : var(--muted-foreground);
+    --color-accent : var(--accent);
+    --color-accent-foreground : var(--accent-foreground);
+    --color-destructive : var(--destructive);
+    --color-border : var(--border);
+    --color-input : var(--input);
+    --color-ring : var(--ring);
+    --color-chart-1 : var(--chart-1);
+    --color-chart-2 : var(--chart-2);
+    --color-chart-3 : var(--chart-3);
+    --color-chart-4 : var(--chart-4);
+    --color-chart-5 : var(--chart-5);
+    --color-sidebar : var(--sidebar);
+    --color-sidebar-foreground : var(--sidebar-foreground);
+    --color-sidebar-primary : var(--sidebar-primary);
+    --color-sidebar-primary-foreground : var(--sidebar-primary-foreground);
+    --color-sidebar-accent : var(--sidebar-accent);
+    --color-sidebar-accent-foreground : var(--sidebar-accent-foreground);
+    --color-sidebar-border : var(--sidebar-border);
+    --color-sidebar-ring : var(--sidebar-ring);
+}
+
+.dark {
+    --background : oklch(0.145 0 0);
+    --foreground : oklch(0.985 0 0);
+    --card : oklch(0.205 0 0);
+    --card-foreground : oklch(0.985 0 0);
+    --popover : oklch(0.205 0 0);
+    --popover-foreground : oklch(0.985 0 0);
+    --primary : oklch(0.922 0 0);
+    --primary-foreground : oklch(0.205 0 0);
+    --secondary : oklch(0.269 0 0);
+    --secondary-foreground : oklch(0.985 0 0);
+    --muted : oklch(0.269 0 0);
+    --muted-foreground : oklch(0.708 0 0);
+    --accent : oklch(0.269 0 0);
+    --accent-foreground : oklch(0.985 0 0);
+    --destructive : oklch(0.704 0.191 22.216);
+    --border : oklch(1 0 0 / 10%);
+    --input : oklch(1 0 0 / 15%);
+    --ring : oklch(0.556 0 0);
+    --chart-1 : oklch(0.488 0.243 264.376);
+    --chart-2 : oklch(0.696 0.17 162.48);
+    --chart-3 : oklch(0.769 0.188 70.08);
+    --chart-4 : oklch(0.627 0.265 303.9);
+    --chart-5 : oklch(0.645 0.246 16.439);
+    --sidebar : oklch(0.205 0 0);
+    --sidebar-foreground : oklch(0.985 0 0);
+    --sidebar-primary : oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground : oklch(0.985 0 0);
+    --sidebar-accent : oklch(0.269 0 0);
+    --sidebar-accent-foreground : oklch(0.985 0 0);
+    --sidebar-border : var(--NavHeroSplit);
+    --sidebar-ring : oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
 }

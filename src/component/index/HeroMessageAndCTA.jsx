@@ -3,74 +3,76 @@ import Arrow from './Arrow'
 import { BsStars } from "react-icons/bs";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger, SplitText } from 'gsap/all' 
+import { ScrollTrigger, SplitText } from 'gsap/all'
 import SenMessage from '../SenMessage';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 
 export default function HeroMessageAndCTA() {
-  const {theme} = useTheme()
-  const [messageMode, setMessageMode] = useState(false);
-  
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+
+  const { theme } = useTheme()
   useGSAP(() => {
-  const ctx = gsap.context(() => {
-    document.fonts.ready.then(() => {
-      const hero = new SplitText('.heroText', { type: 'lines' });
+    const ctx = gsap.context(() => {
+      document.fonts.ready.then(() => {
+        const hero = new SplitText('.heroText', { type: 'lines' });
 
-      gsap.from(hero.lines, {
-        opacity: 0,
-        yPercent: 50,
-        duration: 1,
-        ease: 'power1.inOut',
-        stagger: 0.2,
-        delay: 1.3,
-      });
+        gsap.from(hero.lines, {
+          opacity: 0,
+          yPercent: 50,
+          duration: 1,
+          ease: 'power1.inOut',
+          stagger: 0.2,
+          delay: 1.3,
+        });
 
-      gsap.from('.welcomeMessage', {
-        opacity: 0,
-        yPercent: 50,
-        duration: 1,
-        ease: 'power1.inOut',
-        delay: 1.4,
-      });
+        gsap.from('.welcomeMessage', {
+          opacity: 0,
+          yPercent: 50,
+          duration: 1,
+          ease: 'power1.inOut',
+          delay: 1.4,
+        });
 
-      gsap.from('.buttonHero', {
-        opacity: 0,
-        delay: 1,
+        gsap.from('.buttonHero', {
+          opacity: 0,
+          delay: 1,
+        });
       });
     });
-  });
 
-  return () => ctx.revert();
-}, []);
+    return () => ctx.revert();
+  }, []);
 
 
 
   return (
-    <div className='w-full flex flex-col gap-4 overflow-visible relative '>
-      <div className='overflow-hidden px-4'>
-        <p className=' welcomeMessage text-xs uppercase text-[var(--CTAbuttonColor1)] font-medium tracking-wider flex items-center gap-1'>
-        <BsStars className='h-5 w-5'/>
-        Welcome to My Portfolio</p>
+    <div className='flex flex-col gap-4 overflow-visible relative z-20 pt-16 md:pt-8 lg:pt-0'>
+      <div className='space-y-3'>
+        <div className='overflow-hidden'>
+          <p className='welcomeMessage text-xs uppercase text-[var(--CTAbuttonColor1)] 
+          tracking-wider flex items-center justify-center md:justify-start gap-1 w-full'>
+            <BsStars className='size-4' />
+            Welcome to My Portfolio</p>
+        </div>
+        <div>
+            <h1 className='heroText uppercase space text-center md:text-left'>
+              Crafting intuitive UI {isPortrait && '-'} {!isPortrait && <br/>} Building scalable systems.
+            </h1>
+        </div>
       </div>
-      <h1 className='heroText uppercase px-4'>
-        Frontend developer with a <br/> focus on UI/UX.👋
-      </h1>
-      <div className='px-4'>
-        <button type='button' className={`buttonHero w-fit flex items-center gap-4 py-3 px-16 xl:px-32 
-       text-white uppercase tracking-widest font-bold
+      <div className='grid place-items-center md:place-items-start'>
+        <Link to={'/contact'} className={`buttonHero w-fit flex items-center gap-4 py-2 px-8 lg:px-12
+       text-white uppercase tracking-widest font-bold text-sm
         border-1 border-gray-50/60 shadow-sm shadow-black/30 hover:shadow-lg transition-transform
         bg-gradient-to-r from-[var(--CTAbuttonColor1)] to-[var(--CTAbuttonColor2)] rounded-full
-        cursor-pointer`}
-        onClick={()=>setMessageMode((p)=>!p)}>
-          Let's talk
-          <Arrow/>
-        </button>
+        cursor-pointer`}>Start Your Project
+          <Arrow />
+        </Link>
       </div>
-        {messageMode &&
-        <SenMessage setMessageMode={setMessageMode}/>
-        }
     </div>
   )
 }
