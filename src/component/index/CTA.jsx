@@ -9,12 +9,12 @@ export default function CTA() {
         border-1 card border-[var(--NavHeroSplit)] bg-(--secondaryBackgroundColor) hover:shadow-lg transition-all">
         <div className='flex flex-col gap-6 lg:gap-4'>
             <div className='space-y-2'>
-                <h1 className='bentoH1'>Ready for a Better Product?</h1>
-                <p className={`bentoP`}>
+                <h1 className='bentoH1 text-center lg:text-left'>Ready for a Better Product?</h1>
+                <p className={`bentoP text-center lg:text-left`}>
                     I help turn underperforming products into fast, structured, scalable systems. 
                 </p>
             </div>
-            <div className="w-fit">
+            <div className="w-full grid place-items-center lg:place-items-start">
                 <Link to={'/projects'} className={`text-(--CTAbuttonColor1) bg-indigo-200/30 group bentoSmallButton`}>
                     Work With Me
                     <HeartHandshake className="group-hover:translate-x-1 transition-all duration-300" />
